@@ -19,6 +19,7 @@ namespace WebApplication_CarService.Data
         {
             optionsBuilder.UseMySql(
                 "Server=mysqlstudenti.litv.sssvt.cz;Database=4c2_matocha_db2;User=matochadavid;Password=123456;",
+                
                 ServerVersion.AutoDetect(
                     "Server=mysqlstudenti.litv.sssvt.cz;Database=4c2_matocha_db2;User=matochadavid;Password=123456;"
                 )

@@ -1,3 +1,5 @@
+using WebApplication_CarService.Data;
+
 namespace WebApplication_CarService
 {
     public class Program
@@ -8,6 +10,9 @@ namespace WebApplication_CarService
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            
+           // builder.Services.AddDbContext<CarServiceDbContext>(options =>
+           // options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
