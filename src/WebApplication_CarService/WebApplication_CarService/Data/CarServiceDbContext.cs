@@ -8,6 +8,7 @@ namespace WebApplication_CarService.Data
         public CarServiceDbContext(DbContextOptions<CarServiceDbContext> options)
             : base(options)
         {
+
         }
 
         public DbSet<User> Users { get; set; }
@@ -17,9 +18,9 @@ namespace WebApplication_CarService.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql(
-                "Server=mysqlstudenti.litv.sssvt.cz;Database=matocha_db1;User=matochadavid;Password=123456;",
+                "Server=mysqlstudenti.litv.sssvt.cz;Database=4c2_matocha_db2;User=matochadavid;Password=123456;",
                 ServerVersion.AutoDetect(
-                    "Server=mysqlstudenti.litv.sssvt.cz;Database=matocha_db1;User=matochadavid;Password=123456;"
+                    "Server=mysqlstudenti.litv.sssvt.cz;Database=4c2_matocha_db2;User=matochadavid;Password=123456;"
                 )
             );
         }
