@@ -1,0 +1,15 @@
+﻿@model WebApplication_CarService.Models.Car
+
+<h2>Přidat auto</h2>
+
+<form asp-action="Create" method="post">
+    <label>Značka:</label>
+    <input asp-for="Brand" />
+    <br />
+
+    <label>Model:</label>
+    <input asp-for="Model" />
+    <br />
+
+    <button type="submit">Uložit</button>
+</form>

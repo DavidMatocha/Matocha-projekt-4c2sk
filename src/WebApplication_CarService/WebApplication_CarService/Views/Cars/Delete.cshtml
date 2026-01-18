@@ -1,0 +1,12 @@
+﻿@model WebApplication_CarService.Models.Car
+
+<h2>Smazat auto</h2>
+
+<p>Opravdu chceš smazat auto <strong>@Model.Brand @Model.Model</strong>?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Ano, smazat</button>
+</form>
+
+<a asp-action="Index">Zpět</a>

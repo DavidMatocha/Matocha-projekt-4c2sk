@@ -1,0 +1,26 @@
+﻿@model List<WebApplication_CarService.Models.Car>
+
+<h2>Seznam aut</h2>
+
+<a asp-action="Create">Přidat auto</a>
+
+<table border="1">
+    <tr>
+        <th>Značka</th>
+        <th>Model</th>
+        <th>Akce</th>
+    </tr>
+
+    @foreach (var car in Model)
+    {
+        <tr>
+            <td>@car.Brand</td>
+            <td>@car.Model</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@car.Id">Upravit</a> |
+                <a asp-action="Delete" asp-route-id="@car.Id">Smazat</a>
+            </td>
+        </tr>
+    }
+</table>
+

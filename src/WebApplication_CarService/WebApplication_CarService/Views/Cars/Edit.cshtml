@@ -1,0 +1,17 @@
+﻿@model WebApplication_CarService.Models.Car
+
+<h2>Upravit auto</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <label>Značka:</label>
+    <input asp-for="Brand" />
+    <br />
+
+    <label>Model:</label>
+    <input asp-for="Model" />
+    <br />
+
+    <button type="submit">Uložit změny</button>
+</form>
