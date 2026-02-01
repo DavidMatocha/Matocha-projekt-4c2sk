@@ -1,52 +1,43 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication_CarService.Data;
-using WebApplication_CarService.Models;
+using WebApplication_CarService.ViewModels.Account;
 
 namespace WebApplication_CarService.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly CarServiceDbContext _db;
-
-        public AccountController(CarServiceDbContext db)
-        {
-            _db = db;
-        }
-
+        [HttpGet]
         public IActionResult Register()
         {
-            return View();
+            return View(new RegisterViewModel());
         }
 
         [HttpPost]
-        public IActionResult Register(User user)
+        [ValidateAntiForgeryToken]
+        public IActionResult Register(RegisterViewModel vm)
         {
-            if (ModelState.IsValid)
-            {
-                _db.Users.Add(user);
-                _db.SaveChanges();
-                return RedirectToAction("Login");
-            }
-            return View(user);
+            if (!ModelState.IsValid)
+                return View(vm);
+
+            TempData["Info"] = "Formulář je připravený. Registraci napojíme společně na databázi.";
+            return RedirectToAction(nameof(Register));
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
-            return View();
+            return View(new LoginViewModel());
         }
 
         [HttpPost]
-        public IActionResult Login(string email, string password)
+        [ValidateAntiForgeryToken]
+        public IActionResult Login(LoginViewModel vm)
         {
-            var user = _db.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
-            if (user != null)
-            {
-              
-                TempData["UserEmail"] = user.Email;
-                return RedirectToAction("Index", "Home");
-            }
-            ViewBag.Error = "Neplatný email nebo heslo";
-            return View();
+            if (!ModelState.IsValid)
+                return View(vm);
+
+            TempData["Info"] = "Formulář je připravený. Přihlášení napojíme společně na databázi.";
+            return RedirectToAction(nameof(Login));
         }
     }
 }
+

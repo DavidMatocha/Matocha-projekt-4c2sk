@@ -1,13 +1,13 @@
-﻿@model WebApplication_CarService.ViewModels.Account.LoginViewModel
+﻿@model WebApplication_CarService.ViewModels.Account.RegisterViewModel
 
-<h2 class="mb-3">Přihlášení</h2>
+<h2 class="mb-3">Registrace</h2>
 
 @if (TempData["Info"] is string info)
 {
     <div class="alert alert-info">@info</div>
 }
 
-<form asp-action="Login" method="post" novalidate>
+<form asp-action="Register" method="post" novalidate>
     @Html.AntiForgeryToken()
 
     <div class="mb-3">
@@ -22,13 +22,14 @@
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
 
-    <div class="form-check mb-3">
-        <input asp-for="RememberMe" class="form-check-input" />
-        <label class="form-check-label">Zapamatovat si mě</label>
+    <div class="mb-3">
+        <label class="form-label">Heslo znovu</label>
+        <input asp-for="ConfirmPassword" class="form-control" type="password" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
     </div>
 
     <button class="btn btn-primary" type="submit">Odeslat</button>
-    <a class="btn btn-link" asp-action="Register">Nemám účet</a>
+    <a class="btn btn-link" asp-action="Login">Už mám účet</a>
 </form>
 
 @section Scripts {
