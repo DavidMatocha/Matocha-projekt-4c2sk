@@ -1,0 +1,18 @@
+﻿@model WebApplication_CarService.Models.ServiceRecord
+@{
+    var car = (WebApplication_CarService.Models.Car)ViewBag.Car;
+}
+
+<h2>Smazat servisní záznam</h2>
+
+<div class="alert alert-warning">
+    Opravdu chceš smazat záznam <strong>@Model.Title</strong> ze dne <strong>@Model.Date.ToShortDateString()</strong>?
+</div>
+
+<form asp-action="Delete" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="id" value="@Model.Id" />
+
+    <button class="btn btn-danger" type="submit">Ano, smazat</button>
+    <a class="btn btn-outline-secondary" asp-action="Index" asp-route-carId="@car.Id">Zpět</a>
+</form>

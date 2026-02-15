@@ -1,0 +1,40 @@
+﻿@model WebApplication_CarService.Models.ServiceRecord
+@{
+    var car = (WebApplication_CarService.Models.Car)ViewBag.Car;
+}
+
+<h2>Upravit servisní záznam – @car.Brand @car.Model</h2>
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="CarId" />
+
+    <div class="mb-3">
+        <label class="form-label">Datum</label>
+        <input asp-for="Date" type="date" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Stav km</label>
+        <input asp-for="Mileage" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Název</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Popis</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Cena</label>
+        <input asp-for="Cost" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Uložit změny</button>
+    <a class="btn btn-outline-secondary" asp-action="Index" asp-route-carId="@car.Id">Zpět</a>
+</form>

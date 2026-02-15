@@ -17,7 +17,14 @@
             <td>@car.Brand</td>
             <td>@car.Model</td>
             <td>
-                <a asp-action="Edit" asp-route-id="@car.Id">Upravit</a> |
+                <a class="btn btn-sm btn-outline-primary"
+                   asp-controller="ServiceRecords"
+                   asp-action="Index"
+                   asp-route-carId="@car.Id">
+                    Servisní knížka
+                </a>
+
+                <a asp-action="Edit" asp-route-id="@car.Id">Upravit</a>
                 <a asp-action="Delete" asp-route-id="@car.Id">Smazat</a>
             </td>
         </tr>

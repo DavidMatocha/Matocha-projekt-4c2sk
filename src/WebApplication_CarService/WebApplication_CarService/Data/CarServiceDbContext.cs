@@ -10,6 +10,7 @@ namespace WebApplication_CarService.Data
         {
 
         }
+        public DbSet<MaintenanceItem> MaintenanceItems { get; set; }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Car> Cars { get; set; }
