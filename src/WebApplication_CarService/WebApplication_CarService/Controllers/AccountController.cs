@@ -72,7 +72,7 @@ public class AccountController : Controller
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal,
             new AuthenticationProperties { IsPersistent = model.RememberMe });
 
-        return RedirectToAction("Index", "Cars"); // hned na moje auta
+        return RedirectToAction("Index", "Cars"); 
     }
 
     [HttpPost]
