@@ -24,7 +24,7 @@ public class ServiceRecordsController : Controller
         return _db.Cars.FirstOrDefault(c => c.Id == carId && c.UserId == uid);
     }
 
-    // /ServiceRecords?carId=5
+    //ServiceRecords?carId=5
     public IActionResult Index(int carId)
     {
         var car = OwnedCar(carId);
@@ -40,7 +40,7 @@ public class ServiceRecordsController : Controller
         return View(records);
     }
 
-    // CREATE
+   
     [HttpGet]
     public IActionResult Create(int carId)
     {
@@ -69,7 +69,7 @@ public class ServiceRecordsController : Controller
         return RedirectToAction(nameof(Index), new { carId = record.CarId });
     }
 
-    // EDIT
+  
     [HttpGet]
     public IActionResult Edit(int id)
     {
@@ -110,7 +110,6 @@ public class ServiceRecordsController : Controller
         return RedirectToAction(nameof(Index), new { carId = record.CarId });
     }
 
-    // DELETE
     [HttpGet]
     public IActionResult Delete(int id)
     {

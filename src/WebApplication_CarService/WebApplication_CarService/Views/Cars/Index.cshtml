@@ -1,31 +1,32 @@
 ﻿@model List<WebApplication_CarService.Models.Car>
 
 <h2>Seznam aut</h2>
+<br />
+<a asp-action="Create"><button class="btn btn-primary" type="submit">Přidat auto</button></a>
 
-<a asp-action="Create">Přidat auto</a>
-
-<table border="1">
+<table class="table table-striped table-hover align-middle">
+<thead>
     <tr>
         <th>Značka</th>
         <th>Model</th>
         <th>Akce</th>
     </tr>
+</thead>
 
     @foreach (var car in Model)
     {
         <tr>
-            <td>@car.Brand</td>
-            <td>@car.Model</td>
+            <td> @car.Brand </td>
+            <td> @car.Model </td>
             <td>
-                <a class="btn btn-sm btn-outline-primary"
-                   asp-controller="ServiceRecords"
+                <a asp-controller="ServiceRecords"
                    asp-action="Index"
                    asp-route-carId="@car.Id">
-                    Servisní knížka
+                  <button class="btn btn-outline-primary" type="submit">Servisní knížka</button>
                 </a>
 
-                <a asp-action="Edit" asp-route-id="@car.Id">Upravit</a>
-                <a asp-action="Delete" asp-route-id="@car.Id">Smazat</a>
+                <a asp-action="Edit" asp-route-id="@car.Id"><button class="btn btn-outline-secondary" type="submit">Upravit</button></a>
+                <a asp-action="Delete" asp-route-id="@car.Id"><button class="btn btn-outline-danger" type="submit">Smazat</button></a>
             </td>
         </tr>
     }

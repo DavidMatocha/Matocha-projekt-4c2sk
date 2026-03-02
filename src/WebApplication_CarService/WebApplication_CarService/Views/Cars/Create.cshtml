@@ -3,13 +3,16 @@
 <h2>Přidat auto</h2>
 
 <form asp-action="Create" method="post">
-    <label>Značka:</label>
-    <input asp-for="Brand" />
-    <br />
 
-    <label>Model:</label>
-    <input asp-for="Model" />
-    <br />
+    <div class="mb-3">
+        <label class="form-label">Značka: </label>
+        <input asp-for="Brand" type="brand" class="form-control" />
+    </div>
 
-    <button type="submit">Uložit</button>
+    <div class="mb-3">
+        <label class="form-label">Model: </label>
+        <input asp-for="Model" type="model" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Uložit</button>
 </form>

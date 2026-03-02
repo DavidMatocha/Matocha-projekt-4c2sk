@@ -1,6 +1,7 @@
-﻿@if (User?.Identity?.IsAuthenticated == true)
+﻿
+@if (User?.Identity?.IsAuthenticated == true)
 {
-    <p>Přihlášen: @User.Identity.Name</p>
+    <h3>Přihlášen: @User.Identity.Name</h3>
     <form asp-controller="Account" asp-action="Logout" method="post">
         @Html.AntiForgeryToken()
         <button class="btn btn-outline-danger">Logout</button>
@@ -8,5 +9,5 @@
 }
 else
 {
-    <p>Nepřihlášen</p>
+    <h3>Nepřihlášen </h3>
 }
